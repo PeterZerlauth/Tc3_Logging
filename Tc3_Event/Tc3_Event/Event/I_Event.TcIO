@@ -6,22 +6,22 @@
     <Method Name="M_Critical" Id="{d0c46115-ac72-4277-9bcb-ddcf7e3d7ab4}">
       <Declaration><![CDATA[METHOD PUBLIC M_Critical : BOOL
 VAR_INPUT
-	nID:				UDINT;
 	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR]]></Declaration>
     </Method>
     <Method Name="M_Error" Id="{c094c3d2-f3e1-45d9-923d-9b2e1892dfd7}">
       <Declaration><![CDATA[METHOD PUBLIC M_Error : BOOL
 VAR_INPUT
-	nID:				UDINT;
 	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR]]></Declaration>
     </Method>
     <Method Name="M_Info" Id="{0cdab1e1-7612-435a-9f36-4662c49c13a4}">
       <Declaration><![CDATA[METHOD PUBLIC M_Info : BOOL
 VAR_INPUT
-	nID:				UDINT;
 	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR]]></Declaration>
     </Method>
     <Method Name="M_Reset" Id="{0b189a50-27aa-49f7-90f5-20055e5adc34}">
@@ -38,8 +38,8 @@ END_VAR]]></Declaration>
     <Method Name="M_Warning" Id="{25d7ea16-bfc2-4298-bc2f-eb93105fccab}">
       <Declaration><![CDATA[METHOD PUBLIC M_Warning : BOOL
 VAR_INPUT
-	nID:				UDINT;
 	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR]]></Declaration>
     </Method>
     <Property Name="P_Argument" Id="{4316dac3-f428-4613-b61e-a2d56083c4db}">

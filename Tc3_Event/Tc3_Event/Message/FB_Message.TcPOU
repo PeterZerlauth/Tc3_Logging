@@ -6,6 +6,7 @@
 FUNCTION_BLOCK FB_Message
 VAR_INPUT
 	eLogLevel:			E_LogLevel;
+	{attribute 'displaymode':='hex'}
 	nID:				UDINT;
 	nTimestamp:			Tc2_Utilities.T_FILETIME64;	
 	sSource:			STRING(255);

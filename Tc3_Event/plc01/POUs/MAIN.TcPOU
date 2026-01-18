@@ -6,8 +6,8 @@ VAR
 	fbLogger:			Tc3_Event.FB_LoggerManager;
 	fbHmiLogger:		Tc3_Event.FB_HmiLogger;
 	fbFileLogger:		Tc3_Event.FB_FileLogger;
+	fbTcLogger:			Tc3_Event.FB_TcLogger;
 	fbTest:				FB_TestSlow;
-	fbTest1000:			FB_Test1000;
   	exception:			__SYSTEM.ExceptionCode;	
 	bReset: BOOL;
 END_VAR]]></Declaration>

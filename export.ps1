@@ -1,8 +1,16 @@
-# Requires -Version 5.1
+﻿# Requires -Version 5.1
 
 <#
 .SYNOPSIS
     Tc3 Message Extractor - Final Version (Exports JSON without empty translation fields)
+.DESCRIPTION
+    Scans TwinCAT source files for M_Info, M_Warning, M_Error, and M_Critical calls.
+    - Validates and corrects message IDs based on a hash of the message text.
+    - Replaces IDs of 0 with the correct hash.
+    - Generates new IDs for messages that don't have one.
+    - Updates source files in-place.
+    - Merges findings into a central messages.json file.
+    - Exports to EventClass.xml for TwinCAT Event Manager.
 #>
 
 param(
@@ -11,7 +19,8 @@ param(
 
  $script:Config = @{
     IdWidth = 8
-    MessagePattern = '(\w+\.)?M_(Info|Warning|Error|Critical)\s*\(\s*([0-9]*)\s*,\s*''([^'']+)''\s*\)(.*)'
+    # CHANGE 1: Pattern now matches message first, ID second, and excludes Verbose.
+    MessagePattern = '(\w+\.)?M_(Info|Warning|Error|Critical)\s*\(\s*''([^'']+)''\s*,\s*([0-9]*)\s*\)(.*)'
     FileFilter = "*.TcPOU"
     PlaceholderMap = @{ '%s' = '{0}' }
     OutputJson = "messages.json"
@@ -87,15 +96,21 @@ foreach ($file in $files) {
         $modified = $false
         $content = [regex]::Replace($content, $script:Config.MessagePattern, {
             param($m)
-            $pre, $type, $idStr, $txt, $suf = $m.Groups[1].Value, $m.Groups[2].Value, $m.Groups[3].Value.Trim(), $m.Groups[4].Value.Trim(), $m.Groups[5].Value
+            # CHANGE 2: Swapped variables to match new capture group order (message, then ID)
+            $pre, $type, $txt, $idStr, $suf = $m.Groups[1].Value, $m.Groups[2].Value, $m.Groups[3].Value.Trim(), $m.Groups[4].Value.Trim(), $m.Groups[5].Value
             if ([string]::IsNullOrWhiteSpace($txt)) { return $m.Value }
 
             [uint32]$id = 0; $hasId = [uint32]::TryParse($idStr, [ref]$id); $hashId = [uint32](Get-UDINTHash $txt)
             
-            if (-not $hasId -or $id -eq 0) { $id = $hashId; $modified = $true }
+            # FIX 1: Only generate a new ID if the ID is missing/unparsable, not if it's 0
+            if (-not $hasId) { 
+                $id = $hashId; $modified = $true 
+            }
+            # FIX 2: Always validate the hash, even for ID 0
             elseif ($id -ne $hashId) {
                 $oldId = $id
-                if ($idTracker[$hashId].key -ne $txt) { 
+                # FIX 3: Check if the hashId key exists in the tracker before accessing it
+                if ($idTracker.ContainsKey($hashId) -and $idTracker[$hashId].key -ne $txt) { 
                     $id = [uint32](Get-UDINTHash "$($txt)_fix") 
                     $conflictType = "Collision Resolved"
                 } 
@@ -121,7 +136,8 @@ foreach ($file in $files) {
             }
             
             $idTracker[$id] = @{ id = $id; key = $txt }
-            return "$pre`M_$type($id, '$txt')$suf"
+            # CHANGE 3: Output in the new format: message first, ID second
+            return "$pre`M_$type('$txt', $id)$suf"
         })
 
         if ($modified) { 
@@ -134,12 +150,19 @@ foreach ($file in $files) {
 # --- Report on initial scan ---
 Write-Log "Parsed $totalFiles files, found $($scannedMessages.Count) total messages." -Level Info
 if ($modifiedFiles -gt 0) { Write-Log "Fixed IDs in $modifiedFiles source files." -Level Warning }
-if ($conflictLog.Count -gt 0) { Write-Log "Detected and resolved $($conflictLog.Count) message ID conflicts/corrections." -Level Warning }
+if ($conflictLog.Count -gt 0) { 
+    Write-Log "Detected and resolved $($conflictLog.Count) message ID conflicts/corrections." -Level Warning
+    Write-Log "--- Conflict Details ---" -Level Info
+    foreach ($logEntry in $conflictLog) {
+        Write-Log $logEntry -Level Info
+    }
+    Write-Log "--------------------------" -Level Info
+}
 
 # 2. Merge JSON
  $finalMessages = [System.Collections.Specialized.OrderedDictionary]::new()
  $keyToIdMap = @{}
- $duplicateKeyLog = @()
+ $duplicateKeyLog = @{}
 
 if (Test-Path $outputFile) {
     try {
@@ -206,6 +229,7 @@ if ($duplicateKeyLog.Count -gt 0) {
 
 foreach ($scan in $scannedMessages.Values | Sort-Object id) {
     $id = $scan.id
+    # FIX 4: Use .Contains() for OrderedDictionary, not .ContainsKey()
     if (-not $finalMessages.Contains($id)) {
         $newCount++
         $newMessagesList += @{Id = (Format-MessageId $id); Text = $scan.key}

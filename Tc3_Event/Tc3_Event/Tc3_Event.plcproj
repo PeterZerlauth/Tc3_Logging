@@ -9,7 +9,7 @@
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>Tc3_Event</Name>
-    <ProgramVersion>3.1.4026.19</ProgramVersion>
+    <ProgramVersion>3.1.4026.20</ProgramVersion>
     <Application>{31b54c60-b197-4f56-bc36-04081940ab73}</Application>
     <TypeSystem>{7cbfef62-c143-4aa2-90cb-def22df8c25c}</TypeSystem>
     <Implicit_Task_Info>{d25354ea-7e33-4a1c-aa09-441fd8f5c83c}</Implicit_Task_Info>
@@ -19,7 +19,7 @@
     <Company>www.peterzerlauth.com</Company>
     <Released>false</Released>
     <Title>Tc3_Event</Title>
-    <ProjectVersion>0.0.0.5</ProjectVersion>
+    <ProjectVersion>0.0.0.7</ProjectVersion>
     <DefaultNamespace>Tc3_Event</DefaultNamespace>
     <Placeholder>Tc3_Event</Placeholder>
     <Author>Peter Zerlauth</Author>
@@ -59,6 +59,7 @@
     <Folder Include="Logger\HmiLogger" />
     <Folder Include="Logger\Manager" />
     <Folder Include="Logger" />
+    <Folder Include="Logger\TcLogger" />
     <Folder Include="Message" />
     <Folder Include="Argument" />
     <Folder Include="Global Variables" />
@@ -126,6 +127,10 @@
     </Compile>
     <Compile Include="Logger\Manager\FB_LoggerManager.TcPOU">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logger\TcLogger\FB_TcLogger.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
     </Compile>
     <Compile Include="Message\FB_Message.TcPOU">
       <SubType>Code</SubType>
@@ -332,6 +337,12 @@
             <v>ReplaceConstants</v>
             <v>True</v>
           </d>
+        </o>
+        <v>{eeeeeeee-3909-4298-8022-501ac3238667}</v>
+        <o>
+          <v n="Name">"{eeeeeeee-3909-4298-8022-501ac3238667}"</v>
+          <d n="SubKeys" t="Hashtable" />
+          <d n="Values" t="Hashtable" />
         </o>
         <v>{F66C7017-BDD8-4114-926C-81D6D687E35F}</v>
         <o>

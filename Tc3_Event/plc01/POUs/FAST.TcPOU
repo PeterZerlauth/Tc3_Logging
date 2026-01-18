@@ -10,7 +10,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[__TRY
 	IF exception = __SYSTEM.ExceptionCode.RTSEXCPT_NOEXCEPTION THEN
-// 		fbTest.P_Event.P_Logger:= MAIN.fbLogger;
+		fbTest.P_Event.P_Logger:= MAIN.fbLogger;
 	
 	fbTest();
 	

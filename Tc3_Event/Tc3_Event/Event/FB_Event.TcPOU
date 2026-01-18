@@ -15,19 +15,12 @@ VAR
     sInstancePath:				STRING(255);
 	fbSymbolInfo: 				PLC_ReadSymInfoByNameEx;
 	fbSystemTime: 				FB_LocalSystemTime;
-    {attribute 'hide'} 
-	fbSourceInfo:				FB_TcSourceInfo;
 	fbArguments:				FB_Argument;	
 	fbVerbose:					FB_Message;
 	fbInfo:						FB_Message;
 	fbWarning:					FB_Message;
 	fbError:					FB_Message;
 	fbCritical:					FB_Message;
-	fbTcVerbose:				FB_TcAlarm;
-	fbTcInfo:					FB_TcAlarm;
-	fbTcWarning:				FB_TcAlarm;
-	fbTcError:					FB_TcAlarm;
-	fbTcCritical:				FB_TcAlarm;
 END_VAR
 VAR_STAT
 	nCycleTime:					UDINT;
@@ -64,47 +57,6 @@ IF nCycleTime <> TwinCAT_SystemInfoVarList._TaskInfo[GETCURTASKINDEXEX()].CycleT
 	fbSystemTime();
 	nTimestamp:= SYSTEMTIME_TO_FILETIME64(fbSystemTime.systemTime);
 	GVL.nTimestamp:= nTimestamp;	
-END_IF
-
-
-IF fbVerbose.bActive THEN
-	fbVerbose.bActive:= FALSE;
-ELSE
-	IF fbTcVerbose.bActive THEN
-		fbTcVerbose.Clear();
-	END_IF
-END_IF
-
-IF fbInfo.bActive THEN
-	fbInfo.bActive:= FALSE;
-ELSE
-	IF fbTcInfo.bActive THEN
-		fbTcInfo.Clear();
-	END_IF
-END_IF
-
-IF fbWarning.bActive THEN
-	fbWarning.bActive:= FALSE;
-ELSE
-	IF fbTcWarning.bActive THEN
-		fbTcWarning.Clear();
-	END_IF
-END_IF
-
-IF fbError.bActive THEN
-	fbError.bActive:= FALSE;
-ELSE
-	IF fbTcError.bActive THEN
-		fbTcError.Clear();
-	END_IF
-END_IF
-
-IF fbCritical.bActive THEN
-	fbCritical.bActive:= FALSE;
-ELSE
-	IF fbTcCritical.bActive THEN
-		fbTcCritical.Clear();
-	END_IF
 END_IF]]></ST>
     </Implementation>
     <Method Name="FB_Init" Id="{86bf7a82-ee08-4323-8f31-a4c33f4b211e}">
@@ -127,8 +79,8 @@ fbSystemTime.bEnable:= TRUE;]]></ST>
     <Method Name="M_Critical" Id="{7b4c91bf-8e3c-413c-a148-e271617106d9}">
       <Declaration><![CDATA[METHOD PUBLIC M_Critical : BOOL
 VAR_INPUT
-	nID:				UDINT;				// Id of the error message
-	sMessage:			STRING(255);		// content of the error message, placeholder %s
+	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR
 VAR
 	sArgument:			STRING;
@@ -159,25 +111,6 @@ ELSE
 	iLogger.M_Log(fbCritical);
 END_IF
 
-// prepare
-fbSourceInfo.Clear();
-fbSourceInfo.sName:= fbCritical.sSource;
-IF NOT fbTcCritical.EqualsToEventEntry(TC_EVENT_CLASSES.Tc3_Event, fbCritical.nID, TcEventSeverity.Critical) THEN
-	fbTcCritical.Create(TC_EVENT_CLASSES.Tc3_Event, fbCritical.nID, TcEventSeverity.Critical, FALSE, fbSourceInfo);
-END_IF
-
-fbTcCritical.ipArguments.Clear();
-
-// Split and add arguments
-nPosition := FIND(fbCritical.sArguments, '$R');
-WHILE nPosition > 0 DO
-    sArgument := LEFT(fbCritical.sArguments, nPosition - 1);
-    fbTcCritical.ipArguments.AddString(sArgument);
-    fbCritical.sArguments:= RIGHT(fbCritical.sArguments, LEN(fbCritical.sArguments) - (nPosition + 1));
-    nPosition := FIND(fbCritical.sArguments, '$R');
-END_WHILE;
-
-fbTcCritical.Raise(fbCritical.nTimestamp);
 	
 fbArguments.M_Clear();]]></ST>
       </Implementation>
@@ -185,8 +118,8 @@ fbArguments.M_Clear();]]></ST>
     <Method Name="M_Error" Id="{11687e23-ea95-4e4f-aed4-4799ffa1ad84}">
       <Declaration><![CDATA[METHOD PUBLIC M_Error : BOOL
 VAR_INPUT
-	nID:				UDINT;				// Id of the error message
-	sMessage:			STRING(255);		// content of the error message, placeholder %s
+	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR
 VAR
 	sArgument:			STRING;
@@ -217,33 +150,14 @@ ELSE
 	iLogger.M_Log(fbError);
 END_IF
 
-// prepare
-fbSourceInfo.Clear();
-fbSourceInfo.sName:= fbError.sSource;
-IF NOT fbTcError.EqualsToEventEntry(TC_EVENT_CLASSES.Tc3_Event, fbError.nID, TcEventSeverity.Error) THEN
-	fbTcError.Create(TC_EVENT_CLASSES.Tc3_Event, fbError.nID, TcEventSeverity.Error, FALSE, fbSourceInfo);
-END_IF
-fbTcError.ipArguments.Clear();
-
-// Split and add arguments
-nPosition := FIND(fbError.sArguments, '$R');
-WHILE nPosition > 0 DO
-    sArgument := LEFT(fbError.sArguments, nPosition - 1);
-    fbTcError.ipArguments.AddString(sArgument);
-    fbError.sArguments:= RIGHT(fbError.sArguments, LEN(fbError.sArguments) - (nPosition + 1));
-    nPosition := FIND(fbError.sArguments, '$R');
-END_WHILE;
-
-fbTcError.Raise(fbError.nTimestamp);
-
 fbArguments.M_Clear();]]></ST>
       </Implementation>
     </Method>
     <Method Name="M_Info" Id="{7a920e55-da6d-473b-9aba-119c4de007e0}">
       <Declaration><![CDATA[METHOD PUBLIC M_Info : BOOL
 VAR_INPUT
-	nID:				UDINT;				// Id of the error message
-	sMessage:			STRING(255);		// content of the error message, placeholder %s
+	sMessage:			STRING(255);
+	nID:				UDINT;
 END_VAR
 VAR
 	sArgument:			STRING;
@@ -273,25 +187,6 @@ IF iLogger = 0 THEN
 ELSE
 	iLogger.M_Log(fbInfo);
 END_IF
-
-// prepare
-fbSourceInfo.Clear();
-fbSourceInfo.sName:= fbInfo.sSource;
-IF NOT fbTcInfo.EqualsToEventEntry(TC_EVENT_CLASSES.Tc3_Event, fbInfo.nID, TcEventSeverity.Info) THEN
-	fbTcInfo.Create(TC_EVENT_CLASSES.Tc3_Event, fbInfo.nID, TcEventSeverity.Info, FALSE, fbSourceInfo);
-END_IF
-fbTcInfo.ipArguments.Clear();
-
-// Split and add arguments
-nPosition := FIND(fbInfo.sArguments, '$R');
-WHILE nPosition > 0 DO
-    sArgument := LEFT(fbInfo.sArguments, nPosition - 1);
-    fbTcInfo.ipArguments.AddString(sArgument);
-    fbInfo.sArguments:= RIGHT(fbInfo.sArguments, LEN(fbInfo.sArguments) - (nPosition + 1));
-    nPosition := FIND(fbInfo.sArguments, '$R');
-END_WHILE;
-
-fbTcInfo.Raise(fbInfo.nTimestamp);
 
 fbArguments.M_Clear();]]></ST>
       </Implementation>
@@ -323,10 +218,6 @@ END_IF]]></ST>
       <Declaration><![CDATA[METHOD PUBLIC M_Verbose : BOOL
 VAR_INPUT
 	sMessage:			STRING(255);		// content of the error message, placeholder %s
-END_VAR
-VAR
-	sArgument:			STRING;
-	nPosition: 			INT;
 END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[IF sMessage = '' THEN
@@ -349,25 +240,6 @@ ELSE
 	iLogger.M_Log(fbVerbose);
 END_IF
 
-// prepare
-fbSourceInfo.Clear();
-fbSourceInfo.sName:= fbVerbose.sSource;
-IF NOT fbTcVerbose.EqualsToEventEntry(TC_EVENT_CLASSES.Tc3_Event, fbVerbose.nID, TcEventSeverity.Verbose) THEN
-	fbTcVerbose.Create(TC_EVENT_CLASSES.Tc3_Event, fbVerbose.nID, TcEventSeverity.Verbose, FALSE, fbSourceInfo);
-END_IF
-fbTcVerbose.ipArguments.Clear();
-
-// Split and add arguments
-nPosition := FIND(fbVerbose.sArguments, '$R');
-WHILE nPosition > 0 DO
-    sArgument := LEFT(fbVerbose.sArguments, nPosition - 1);
-    fbTcVerbose.ipArguments.AddString(sArgument);
-    fbVerbose.sArguments:= RIGHT(fbVerbose.sArguments, LEN(fbVerbose.sArguments) - (nPosition + 1));
-    nPosition := FIND(fbVerbose.sArguments, '$R');
-END_WHILE;
-
-fbTcVerbose.Raise(fbVerbose.nTimestamp);
-
 
 fbArguments.M_Clear();]]></ST>
       </Implementation>
@@ -375,12 +247,8 @@ fbArguments.M_Clear();]]></ST>
     <Method Name="M_Warning" Id="{1aa0d3ef-0f74-4102-97d7-7d587822db85}">
       <Declaration><![CDATA[METHOD PUBLIC M_Warning : BOOL
 VAR_INPUT
+	sMessage:			STRING(255);
 	nID:				UDINT;
-	sMessage:			STRING(255);		// content of the error message, placeholder %s
-END_VAR
-VAR
-	sArgument:			STRING;
-	nPosition: 			INT;
 END_VAR]]></Declaration>
       <Implementation>
         <ST><![CDATA[IF sMessage = '' THEN
@@ -406,25 +274,6 @@ IF iLogger = 0 THEN
 ELSE
 	iLogger.M_Log(fbWarning);
 END_IF
-
-// prepare
-fbSourceInfo.Clear();
-fbSourceInfo.sName:= fbWarning.sSource;
-IF NOT fbTcWarning.EqualsToEventEntry(TC_EVENT_CLASSES.Tc3_Event, fbWarning.nID, TcEventSeverity.Warning) THEN
-	fbTcWarning.Create(TC_EVENT_CLASSES.Tc3_Event, fbWarning.nID, TcEventSeverity.Warning, FALSE, fbSourceInfo);
-END_IF
-fbTcWarning.ipArguments.Clear();
-
-// Split and add arguments
-nPosition := FIND(fbWarning.sArguments, '$R');
-WHILE nPosition > 0 DO
-    sArgument := LEFT(fbWarning.sArguments, nPosition - 1);
-    fbTcWarning.ipArguments.AddString(sArgument);
-    fbWarning.sArguments:= RIGHT(fbWarning.sArguments, LEN(fbWarning.sArguments) - (nPosition + 1));
-    nPosition := FIND(fbWarning.sArguments, '$R');
-END_WHILE;
-
-fbTcWarning.Raise(fbWarning.nTimestamp);
 
 fbArguments.M_Clear();]]></ST>
       </Implementation>

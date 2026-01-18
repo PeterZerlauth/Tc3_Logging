@@ -30,20 +30,21 @@ END_IF
 IF bInfo THEN
 	fbEvent.P_Argument.M_AddREAL(33.134581234, 3);
 	fbEvent.P_Argument.M_AddSTRING('mm');
-	fbEvent.M_Info(828536003, 'I message %s %s');
+	fbEvent.M_Info('I message %s %s', 828536003);
 END_IF
 
 IF bWarning THEN
-	fbEvent.M_Warning(475719253, 'W message');
-	fbEvent.M_Warning(475719253, 'W message');
+	fbEvent.M_Warning('W message', 475719253);
+	fbEvent.M_Warning('W message', 475719253);
 END_IF
 
 IF bError THEN
-	fbEvent.M_Error(475719235, 'E message');
+	fbEvent.M_Error('E message', 475719235);
 END_IF
 
 IF bCritical THEN
-	fbEvent.M_Critical(475719233, 'C message'); ///839384782
+	fbEvent.M_Critical('C message', 475719233); ///839384782
+	fbEvent.M_Critical('B message', 0); 
 END_IF
 ]]></ST>
     </Implementation>

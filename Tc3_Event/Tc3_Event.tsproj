@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.19">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.20">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{366E346C-09BD-4777-AF29-EAE84C4927DE}" PersistentType="true">TcLogging</Name>
@@ -1315,7 +1315,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{90CE2844-1A87-435D-8A79-619DCCF6A970}" Name="plc01" PrjFilePath="plc01\plc01.plcproj" TmcFilePath="plc01\plc01.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{80147182-4872-C27A-C988-F85F6CBD2E1B}" TmcPath="plc01\plc01.tmc">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{8C6B4CC5-83C2-59FD-E6C7-0A3A56CD1C36}" TmcPath="plc01\plc01.tmc">
 					<Name>plc01 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
