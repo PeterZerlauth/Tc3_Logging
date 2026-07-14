@@ -130,7 +130,6 @@ fbEvent.M_Critical(2626343866, 'Emergency stop activated');
                    {
                        "id":  "849363082",
                        "key":  "Input %s is simulated"
-                       "source":  [ "FB_Test1000", "FB_TestSlow" ]
                    }
   ]
 }
