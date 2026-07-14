@@ -1,10 +1,10 @@
-# Tc3_Event: Event Logging Framework for TwinCAT 3
+# Tc3_Logging: Event Logging Framework for TwinCAT 3
 
 [![License](https://img.shields.io/github/license/PeterZerlauth/Tc3_Event)](LICENSE.md)
 ![TwinCAT](https://img.shields.io/badge/TwinCAT-3-blue)
 ![Platform](https://img.shields.io/badge/Platform-PLC%20Automation-green)
 
-**Tc3_Event** is a lightweight, high-performance event logging framework
+**Tc3_Logging** is a lightweight, high-performance event logging framework
 designed for TwinCAT 3 automation projects.
 It provides structured, standardized logging for diagnostics, simplifies
 development, and integrates seamlessly with HMIs and SCADA systems.
