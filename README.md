@@ -1,6 +1,6 @@
 # Tc3_Logging: Event Logging Framework for TwinCAT 3
 
-[![License](https://img.shields.io/github/license/PeterZerlauth/Tc3_Event)](LICENSE.md)
+[![License](https://img.shields.io/github/license/PeterZerlauth/Tc3_Logging)](LICENSE.md)
 ![TwinCAT](https://img.shields.io/badge/TwinCAT-3-blue)
 ![Platform](https://img.shields.io/badge/Platform-PLC%20Automation-green)
 
@@ -28,7 +28,7 @@ development, and integrates seamlessly with HMIs and SCADA systems.
 
 ## 🔍 Overview
 
-Tc3_Event accelerates your development cycle by 30--50% by eliminating
+Tc3_Logging accelerates your development cycle by 30--50% by eliminating
 manual steps and implementing standardized, traceable logging from day
 one.\
 Built with Structured Text (ST) and reusable Function Blocks, it ensures
@@ -68,7 +68,7 @@ clarity, consistency, and operational transparency.
 ### 1. Clone the Repository
 
 ``` bash
-git clone https://github.com/PeterZerlauth/Tc3_Event.git
+git clone https://github.com/PeterZerlauth/Tc3_Logging.git
 ```
 
 ### 2. Import into TwinCAT 3
