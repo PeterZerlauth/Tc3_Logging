@@ -1,27 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EventClass>
   <EventId>
-    <Name Id="475719235">Tc3_Event_475719235</Name>
-    <DisplayName TxtId=""><![CDATA[E message]]></DisplayName>
+    <Name Id="110769791">Tc3_Event_110769791</Name>
+    <DisplayName TxtId=""><![CDATA[B messagex]]></DisplayName>
   </EventId>
   <EventId>
-    <Name Id="475719233">Tc3_Event_475719233</Name>
-    <DisplayName TxtId=""><![CDATA[C message]]></DisplayName>
+    <Name Id="110769792">Tc3_Event_110769792</Name>
+    <DisplayName TxtId=""><![CDATA[C messagex]]></DisplayName>
+  </EventId>
+  <EventId>
+    <Name Id="110769813">Tc3_Event_110769813</Name>
+    <DisplayName TxtId=""><![CDATA[X messagex]]></DisplayName>
+  </EventId>
+  <EventId>
+    <Name Id="361230260">Tc3_Event_361230260</Name>
+    <DisplayName TxtId=""><![CDATA[Input {0} is simulated1]]></DisplayName>
   </EventId>
   <EventId>
     <Name Id="475719232">Tc3_Event_475719232</Name>
     <DisplayName TxtId=""><![CDATA[B message]]></DisplayName>
   </EventId>
   <EventId>
-    <Name Id="828536003">Tc3_Event_828536003</Name>
-    <DisplayName TxtId=""><![CDATA[I message {0} {1}]]></DisplayName>
+    <Name Id="475719233">Tc3_Event_475719233</Name>
+    <DisplayName TxtId=""><![CDATA[C message]]></DisplayName>
   </EventId>
   <EventId>
-    <Name Id="849363082">Tc3_Event_849363082</Name>
-    <DisplayName TxtId=""><![CDATA[Input {0} is simulated]]></DisplayName>
+    <Name Id="475719235">Tc3_Event_475719235</Name>
+    <DisplayName TxtId=""><![CDATA[E message]]></DisplayName>
   </EventId>
   <EventId>
     <Name Id="475719253">Tc3_Event_475719253</Name>
     <DisplayName TxtId=""><![CDATA[W message]]></DisplayName>
+  </EventId>
+  <EventId>
+    <Name Id="820656125">Tc3_Event_820656125</Name>
+    <DisplayName TxtId=""><![CDATA[Input {0} is simulated2]]></DisplayName>
+  </EventId>
+  <EventId>
+    <Name Id="828536003">Tc3_Event_828536003</Name>
+    <DisplayName TxtId=""><![CDATA[I message {0} {0}]]></DisplayName>
+  </EventId>
+  <EventId>
+    <Name Id="849363082">Tc3_Event_849363082</Name>
+    <DisplayName TxtId=""><![CDATA[Input {0} is simulated]]></DisplayName>
   </EventId>
 </EventClass>

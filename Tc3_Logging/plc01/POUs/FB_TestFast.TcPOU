@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="FB_TestSlow" Id="{8cd1133b-3477-41c9-9026-b27d8cb7f6d2}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_TestSlow
+  <POU Name="FB_TestFast" Id="{ac478935-082b-4a26-8ace-9a48a4324c7d}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_TestFast
 VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	fbEvent: 			Tc3_Event.FB_Event;
+	fbEvent: 			Tc3_Logging.FB_Event;
 	bVerbose:			BOOL;
 	bInfo:				BOOL;
 	bWarning:			BOOL;
@@ -30,12 +30,12 @@ END_IF
 IF bInfo THEN
 	fbEvent.P_Argument.M_AddREAL(33.134581234, 3);
 	fbEvent.P_Argument.M_AddSTRING('mm');
-	fbEvent.M_Info('I message %s %s', 0);
+	fbEvent.M_Info('I message %s %s', 828536003);
 END_IF
 
 IF bWarning THEN
-	fbEvent.M_Warning('W message', 0);
-	fbEvent.M_Warning('B message', 475719253);
+	fbEvent.M_Warning('W message', 475719253);
+	fbEvent.M_Warning('W message', 475719253);
 END_IF
 
 IF bError THEN
@@ -43,13 +43,14 @@ IF bError THEN
 END_IF
 
 IF bCritical THEN
-	fbEvent.M_Error('Input %s is simulated', 849363082);
+	fbEvent.M_Critical('C message', 475719233);//475719234
+	fbEvent.M_Critical('B message', 475719232); 
 END_IF
 ]]></ST>
     </Implementation>
-    <Property Name="P_Event" Id="{1b280b73-a5c7-4186-ac99-29403b5a1044}">
+    <Property Name="P_Event" Id="{63fbb4c9-9e22-4943-b7c2-35f7dcebbab1}">
       <Declaration><![CDATA[PROPERTY PUBLIC P_Event : reference to FB_event]]></Declaration>
-      <Get Name="Get" Id="{f7a9f415-12a5-443c-b0d8-84df15e2089b}">
+      <Get Name="Get" Id="{26df797a-6ac5-4d0e-a3a7-1cfc9121b495}">
         <Declaration><![CDATA[VAR
 END_VAR
 ]]></Declaration>

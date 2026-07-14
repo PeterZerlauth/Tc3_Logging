@@ -3,10 +3,9 @@
   <POU Name="MAIN" Id="{19c7fd4e-92ee-4c48-b527-6576c9627f78}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	fbLogger:			Tc3_Event.FB_LoggerManager;
-	fbHmiLogger:		Tc3_Event.FB_HmiLogger;
-	fbFileLogger:		Tc3_Event.FB_FileLogger;
-	fbTcLogger:			Tc3_Event.FB_TcLogger;
+	fbLogger:			Tc3_Logging.FB_LoggerManager;
+	fbHmiLogger:		Tc3_Logging.FB_HmiLogger;
+	fbFileLogger:		Tc3_Logging.FB_FileLogger;
 	fbTest:				FB_TestSlow;
   	exception:			__SYSTEM.ExceptionCode;	
 	bReset: BOOL;

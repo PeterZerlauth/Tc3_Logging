@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # TcXaeShell Solution File, Format Version 11.00
 VisualStudioVersion = 17.10.35827.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "Tc3_Event", "Tc3_Event\Tc3_Event.tsproj", "{1D2625EF-8024-4597-B02E-DC91CE8D752E}"
+Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "Tc3_Logging", "Tc3_Logging\Tc3_Logging.tsproj", "{1D2625EF-8024-4597-B02E-DC91CE8D752E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

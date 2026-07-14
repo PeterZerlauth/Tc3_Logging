@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.24">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{366E346C-09BD-4777-AF29-EAE84C4927DE}" PersistentType="true">TcLogging</Name>
+			<DisplayName TxtId=""><![CDATA[TcLogging]]></DisplayName>
+			<EventId>
+				<Name Id="1">Verbose</Name>
+				<DisplayName TxtId=""><![CDATA[Verbose: "{0}"]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">Info</Name>
+				<DisplayName TxtId=""><![CDATA[Info: "{0}"]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="3">Warning</Name>
+				<DisplayName TxtId=""><![CDATA[Warning: "{0}"]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="4">Error</Name>
+				<DisplayName TxtId=""><![CDATA[Error: "{0}"]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="5">Critical</Name>
+				<DisplayName TxtId=""><![CDATA[Critical: "{0}"]]></DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{E7070E72-987B-4626-BC34-EA41AB25311B}"/>
+				<Hide GUID="{1CC1C39F-C332-4051-8AD0-EF0528718898}"/>
+				<Hide GUID="{74797750-757F-424D-A362-81C6BF7C65A0}"/>
+				<Hide GUID="{031F14C6-52C9-4E25-B5E4-604E38923F7A}"/>
+				<Hide GUID="{144496AA-4E13-49B6-A7EF-55E6E3D24100}"/>
+				<Hide GUID="{83E0EE1F-6FC1-4698-A892-824388E7CCF6}"/>
+				<Hide GUID="{3342A6F6-7E28-4A71-A44B-064F45D8C31E}"/>
+				<Hide GUID="{454EF50C-6308-495E-8D8C-48EB65ED4454}"/>
+				<Hide GUID="{B1DD928B-5854-4F85-9150-DE317FF8E436}"/>
+				<Hide GUID="{ED9686D0-DC9B-4B0C-8C73-696933B513B4}"/>
+				<Hide GUID="{5E3509CC-18E8-4BEE-B52D-5EEBEFDC33C6}"/>
+				<Hide GUID="{5F36E389-CD42-4ED7-B91C-B1643B176C5D}"/>
+				<Hide GUID="{1D704178-4FB0-47B0-8DF1-C873F43D818C}"/>
+				<Hide GUID="{65EA632A-052D-4D21-8AA4-01980D3EA085}"/>
+				<Hide GUID="{12C4B274-66F6-4F37-8DE3-B7E658FA3B7C}"/>
+				<Hide GUID="{08A3C855-94A2-4EA6-84F5-918A9ADB1D91}"/>
+				<Hide GUID="{AAC67BA7-F5FA-4003-8647-3CF9CA1CC3B0}"/>
+				<Hide GUID="{C806A3CF-1AE2-435C-A404-A6D1DF66BFC3}"/>
+				<Hide GUID="{47A03CE2-28BD-49CE-9466-223052854AB7}"/>
+				<Hide GUID="{636A1E57-1F2E-450A-AA93-443F2DCBF706}"/>
+				<Hide GUID="{DFD6340F-2E50-4283-A0CC-36A00EEFB312}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{C84A1760-164B-45B1-9B3E-A95D0F7D74DA}" PersistentType="true">Tc3_Event</Name>
+			<DisplayName TxtId=""><![CDATA[Tc3_Event]]></DisplayName>
+			<EventId>
+				<Name Id="1">Verbose</Name>
+				<DisplayName TxtId=""><![CDATA[Verbose: "{0}"]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="2">Info</Name>
+				<DisplayName TxtId=""><![CDATA[ID: {0} , Info: "{0}"]]></DisplayName>
+				<Severity>Info</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="3">Warning</Name>
+				<DisplayName TxtId=""><![CDATA[ID: {0} , Warning: "{0}"]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="4">Error</Name>
+				<DisplayName TxtId=""><![CDATA[ID: {0} , Error: "{0}"]]></DisplayName>
+				<Severity>Warning</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="5">Critical</Name>
+				<DisplayName TxtId=""><![CDATA[ID: {0} , Critical: "{0}"]]></DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{E7070E72-987B-4626-BC34-EA41AB25311B}"/>
+				<Hide GUID="{1CC1C39F-C332-4051-8AD0-EF0528718898}"/>
+				<Hide GUID="{74797750-757F-424D-A362-81C6BF7C65A0}"/>
+				<Hide GUID="{031F14C6-52C9-4E25-B5E4-604E38923F7A}"/>
+				<Hide GUID="{144496AA-4E13-49B6-A7EF-55E6E3D24100}"/>
+				<Hide GUID="{83E0EE1F-6FC1-4698-A892-824388E7CCF6}"/>
+				<Hide GUID="{3342A6F6-7E28-4A71-A44B-064F45D8C31E}"/>
+				<Hide GUID="{454EF50C-6308-495E-8D8C-48EB65ED4454}"/>
+				<Hide GUID="{B1DD928B-5854-4F85-9150-DE317FF8E436}"/>
+				<Hide GUID="{ED9686D0-DC9B-4B0C-8C73-696933B513B4}"/>
+				<Hide GUID="{5E3509CC-18E8-4BEE-B52D-5EEBEFDC33C6}"/>
+				<Hide GUID="{5F36E389-CD42-4ED7-B91C-B1643B176C5D}"/>
+				<Hide GUID="{1D704178-4FB0-47B0-8DF1-C873F43D818C}"/>
+				<Hide GUID="{65EA632A-052D-4D21-8AA4-01980D3EA085}"/>
+				<Hide GUID="{12C4B274-66F6-4F37-8DE3-B7E658FA3B7C}"/>
+				<Hide GUID="{08A3C855-94A2-4EA6-84F5-918A9ADB1D91}"/>
+				<Hide GUID="{AAC67BA7-F5FA-4003-8647-3CF9CA1CC3B0}"/>
+				<Hide GUID="{C806A3CF-1AE2-435C-A404-A6D1DF66BFC3}"/>
+				<Hide GUID="{47A03CE2-28BD-49CE-9466-223052854AB7}"/>
+				<Hide GUID="{636A1E57-1F2E-450A-AA93-443F2DCBF706}"/>
+				<Hide GUID="{DFD6340F-2E50-4283-A0CC-36A00EEFB312}"/>
+				<Hide GUID="{366E346C-09BD-4777-AF29-EAE84C4927DE}"/>
+				<Hide GUID="{EBEEE40D-329C-4B94-91E3-4047C8458555}"/>
+				<Hide GUID="{913714E4-9427-49EF-B121-FA158A06B07E}"/>
+				<Hide GUID="{9DDF27BF-5B54-49EC-95AB-7C27F64C7FDC}"/>
+				<Hide GUID="{E92BC75C-0375-4838-9480-C120CB37A45B}"/>
+				<Hide GUID="{42588847-9DD1-41D3-A758-9C291BB368EC}"/>
+				<Hide GUID="{55E0C2CF-585E-4988-AD8D-19F0B18CE7A8}"/>
+				<Hide GUID="{0A0C14A9-BD67-48E0-BC03-2E75B95E4F06}"/>
+				<Hide GUID="{1A7F3723-7003-43FA-A12C-096FB7D98974}"/>
+				<Hide GUID="{F8E4A9BC-517B-4044-B050-E63CCD78550B}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{9214451C-39A2-483B-81E1-F2467B827DBC}" PersistentType="true">Tc3_Event</Name>
+			<DisplayName TxtId=""><![CDATA[Tc3_Event]]></DisplayName>
+			<EventId>
+				<Name Id="973218685">Critical</Name>
+				<DisplayName TxtId=""><![CDATA[Critical message]]></DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<EventId>
+				<Name Id="973218686">Critical_message</Name>
+				<DisplayName TxtId=""><![CDATA[Critical message]]></DisplayName>
+				<Severity>Critical</Severity>
+			</EventId>
+			<Hides>
+				<Hide GUID="{E7070E72-987B-4626-BC34-EA41AB25311B}"/>
+				<Hide GUID="{1CC1C39F-C332-4051-8AD0-EF0528718898}"/>
+				<Hide GUID="{74797750-757F-424D-A362-81C6BF7C65A0}"/>
+				<Hide GUID="{031F14C6-52C9-4E25-B5E4-604E38923F7A}"/>
+				<Hide GUID="{144496AA-4E13-49B6-A7EF-55E6E3D24100}"/>
+				<Hide GUID="{83E0EE1F-6FC1-4698-A892-824388E7CCF6}"/>
+				<Hide GUID="{3342A6F6-7E28-4A71-A44B-064F45D8C31E}"/>
+				<Hide GUID="{454EF50C-6308-495E-8D8C-48EB65ED4454}"/>
+				<Hide GUID="{B1DD928B-5854-4F85-9150-DE317FF8E436}"/>
+				<Hide GUID="{ED9686D0-DC9B-4B0C-8C73-696933B513B4}"/>
+				<Hide GUID="{5E3509CC-18E8-4BEE-B52D-5EEBEFDC33C6}"/>
+				<Hide GUID="{5F36E389-CD42-4ED7-B91C-B1643B176C5D}"/>
+				<Hide GUID="{1D704178-4FB0-47B0-8DF1-C873F43D818C}"/>
+				<Hide GUID="{65EA632A-052D-4D21-8AA4-01980D3EA085}"/>
+				<Hide GUID="{12C4B274-66F6-4F37-8DE3-B7E658FA3B7C}"/>
+				<Hide GUID="{08A3C855-94A2-4EA6-84F5-918A9ADB1D91}"/>
+				<Hide GUID="{AAC67BA7-F5FA-4003-8647-3CF9CA1CC3B0}"/>
+				<Hide GUID="{C806A3CF-1AE2-435C-A404-A6D1DF66BFC3}"/>
+				<Hide GUID="{47A03CE2-28BD-49CE-9466-223052854AB7}"/>
+				<Hide GUID="{636A1E57-1F2E-450A-AA93-443F2DCBF706}"/>
+				<Hide GUID="{DFD6340F-2E50-4283-A0CC-36A00EEFB312}"/>
+				<Hide GUID="{366E346C-09BD-4777-AF29-EAE84C4927DE}"/>
+				<Hide GUID="{EBEEE40D-329C-4B94-91E3-4047C8458555}"/>
+				<Hide GUID="{913714E4-9427-49EF-B121-FA158A06B07E}"/>
+				<Hide GUID="{9DDF27BF-5B54-49EC-95AB-7C27F64C7FDC}"/>
+				<Hide GUID="{E92BC75C-0375-4838-9480-C120CB37A45B}"/>
+				<Hide GUID="{42588847-9DD1-41D3-A758-9C291BB368EC}"/>
+				<Hide GUID="{55E0C2CF-585E-4988-AD8D-19F0B18CE7A8}"/>
+				<Hide GUID="{0A0C14A9-BD67-48E0-BC03-2E75B95E4F06}"/>
+				<Hide GUID="{1A7F3723-7003-43FA-A12C-096FB7D98974}"/>
+				<Hide GUID="{F8E4A9BC-517B-4044-B050-E63CCD78550B}"/>
+				<Hide GUID="{C84A1760-164B-45B1-9B3E-A95D0F7D74DA}"/>
+				<Hide GUID="{402F9D29-8B48-4E61-A4D7-FA252C75D4A6}"/>
+				<Hide GUID="{B0554383-1F22-4E3B-83E5-95668C99A4F1}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{C2555A71-D4F8-4DDE-9EC7-26C663026D2B}" PersistentType="true">Tc3_Event</Name>
+			<DisplayName TxtId=""><![CDATA[Tc3_Event]]></DisplayName>
+			<BitSize>0</BitSize>
+			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
+			<Hides>
+				<Hide GUID="{E7070E72-987B-4626-BC34-EA41AB25311B}"/>
+				<Hide GUID="{1CC1C39F-C332-4051-8AD0-EF0528718898}"/>
+				<Hide GUID="{74797750-757F-424D-A362-81C6BF7C65A0}"/>
+				<Hide GUID="{031F14C6-52C9-4E25-B5E4-604E38923F7A}"/>
+				<Hide GUID="{144496AA-4E13-49B6-A7EF-55E6E3D24100}"/>
+				<Hide GUID="{83E0EE1F-6FC1-4698-A892-824388E7CCF6}"/>
+				<Hide GUID="{3342A6F6-7E28-4A71-A44B-064F45D8C31E}"/>
+				<Hide GUID="{454EF50C-6308-495E-8D8C-48EB65ED4454}"/>
+				<Hide GUID="{B1DD928B-5854-4F85-9150-DE317FF8E436}"/>
+				<Hide GUID="{ED9686D0-DC9B-4B0C-8C73-696933B513B4}"/>
+				<Hide GUID="{5E3509CC-18E8-4BEE-B52D-5EEBEFDC33C6}"/>
+				<Hide GUID="{5F36E389-CD42-4ED7-B91C-B1643B176C5D}"/>
+				<Hide GUID="{1D704178-4FB0-47B0-8DF1-C873F43D818C}"/>
+				<Hide GUID="{65EA632A-052D-4D21-8AA4-01980D3EA085}"/>
+				<Hide GUID="{12C4B274-66F6-4F37-8DE3-B7E658FA3B7C}"/>
+				<Hide GUID="{08A3C855-94A2-4EA6-84F5-918A9ADB1D91}"/>
+				<Hide GUID="{AAC67BA7-F5FA-4003-8647-3CF9CA1CC3B0}"/>
+				<Hide GUID="{C806A3CF-1AE2-435C-A404-A6D1DF66BFC3}"/>
+				<Hide GUID="{47A03CE2-28BD-49CE-9466-223052854AB7}"/>
+				<Hide GUID="{636A1E57-1F2E-450A-AA93-443F2DCBF706}"/>
+				<Hide GUID="{DFD6340F-2E50-4283-A0CC-36A00EEFB312}"/>
+				<Hide GUID="{366E346C-09BD-4777-AF29-EAE84C4927DE}"/>
+				<Hide GUID="{EBEEE40D-329C-4B94-91E3-4047C8458555}"/>
+				<Hide GUID="{913714E4-9427-49EF-B121-FA158A06B07E}"/>
+				<Hide GUID="{9DDF27BF-5B54-49EC-95AB-7C27F64C7FDC}"/>
+				<Hide GUID="{E92BC75C-0375-4838-9480-C120CB37A45B}"/>
+				<Hide GUID="{42588847-9DD1-41D3-A758-9C291BB368EC}"/>
+				<Hide GUID="{55E0C2CF-585E-4988-AD8D-19F0B18CE7A8}"/>
+				<Hide GUID="{0A0C14A9-BD67-48E0-BC03-2E75B95E4F06}"/>
+				<Hide GUID="{1A7F3723-7003-43FA-A12C-096FB7D98974}"/>
+				<Hide GUID="{F8E4A9BC-517B-4044-B050-E63CCD78550B}"/>
+				<Hide GUID="{C84A1760-164B-45B1-9B3E-A95D0F7D74DA}"/>
+				<Hide GUID="{402F9D29-8B48-4E61-A4D7-FA252C75D4A6}"/>
+				<Hide GUID="{B0554383-1F22-4E3B-83E5-95668C99A4F1}"/>
+				<Hide GUID="{9214451C-39A2-483B-81E1-F2467B827DBC}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{706703AC-7650-4C71-8258-19BBC4175706}" PersistentType="true">NewEventClass</Name>
+			<DisplayName TxtId=""><![CDATA[NewEventClass_DisplayText]]></DisplayName>
+			<EventId>
+				<Name Id="1">Event</Name>
+				<DisplayName TxtId=""><![CDATA[Event_DisplayText]]></DisplayName>
+				<Severity>Verbose</Severity>
+			</EventId>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{1D2625EF-8024-4597-B02E-DC91CE8D752E}" Target64Bit="true" SaveSolutionArchive="true" ShowHideConfigurations="#x6">
+		<System>
+			<Settings MaxCpus="32"/>
+			<Tasks>
+				<Task Id="3" CreateSymbols="true" Priority="20" CycleTime="200000" AmsPort="350" AdtTasks="true">
+					<Name>SlowTask</Name>
+				</Task>
+				<Task Id="4" CreateSymbols="true" Priority="1" CycleTime="10000" AmsPort="351" AdtTasks="true">
+					<Name>FastTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{90CE2844-1A87-435D-8A79-619DCCF6A970}" Name="plc01" PrjFilePath="plc01\plc01.plcproj" TmcFilePath="plc01\plc01.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{E7E1988D-AE73-DE12-E8D4-5FE7779D2A83}" TmcPath="plc01\plc01.tmc">
+					<Name>plc01 Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Contexts>
+						<Context>
+							<Id>0</Id>
+							<Name>FastTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010040</OTCID>
+							</ManualConfig>
+							<Priority>1</Priority>
+							<CycleTime>1000000</CycleTime>
+						</Context>
+						<Context>
+							<Id>1</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>20000000</CycleTime>
+						</Context>
+					</Contexts>
+					<JsonDynPous><![CDATA[null]]></JsonDynPous>
+					<TaskPouOids>
+						<TaskPouOid Prio="1" OTCID="#x08502002"/>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+			<Project GUID="{DD47BDB8-5322-4236-807D-3FF7BA1320EF}" Name="Tc3_Logging" PrjFilePath="Tc3_Logging\Tc3_Logging.plcproj" TmcFilePath="Tc3_Logging\Tc3_Logging.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance File="Tc3_Logging Instance.xti"/>
+			</Project>
+		</Plc>
+		<Analytics ConfigVersion="1.4">
+			<Name>ANALYTICS</Name>
+			<ImageId>437</ImageId>
+			<XmlProps><![CDATA[<Address>Hauptstraße 5, 32567 Berlin</Address><Latitude>123.41</Latitude><Longitude>43.4555</Longitude><SystemIdAlias></SystemIdAlias><DeviceProps></DeviceProps><SelectedDriverVersion>3.3.211.0</SelectedDriverVersion><StreamTargets><StreamTargetItem Id="c52aa2dd-6c2b-48f9-8123-11450246ce72"><Name>Stream Target 1</Name><Type>FILE</Type><Directory>%TC_BOOTPRJPATH%</Directory><MqttConnectionSettings><Broker>127.0.0.1</Broker><BrokerPort>1883</BrokerPort><UserID /><WithCertificates>false</WithCertificates><CA_Certificate /><Cert_Certificate /><Key_Certificate /><CommunicationTimeout>30000000</CommunicationTimeout><KeepAlivePeriod>600000000</KeepAlivePeriod><TcpBufferSize>32768</TcpBufferSize><SecurityType>NO_SECURITY</SecurityType><Insecure>false</Insecure><IgnoreExpiration>false</IgnoreExpiration><IsPskIdCaseSensitive>false</IsPskIdCaseSensitive><IgnoreCnMismatch>false</IgnoreCnMismatch><TargetPaths>false</TargetPaths><PskMode>HexKey</PskMode></MqttConnectionSettings><TimeType>None</TimeType></StreamTargetItem></StreamTargets><ActivateAlyLogger>false</ActivateAlyLogger>]]></XmlProps>
+		</Analytics>
+	</Project>
+</TcSmProject>
